@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+        <title>Юнитек</title>
+    </head>
+    <body>
+        <header>
+            <div class="header-wrap wrap">
+                <picture class="header-logo-desctop">
+                    <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
+                    <img src="image/header/header-logo-mobile.svg">
+                </picture>
+                <nav class="header-navigation header-navigation--close">
+                    <picture class="header-logo header-mobile-none">
+                        <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
+                        <img src="image/header/header-logo-mobile.svg">
+                    </picture>
+                    <ul class="header-bavigation__list">
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="index.html">Главная</a></li>
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="product.html">Продукция</a></li>
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="services.html">Услуги</a></li>
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="articles.html">Статьи</a></li>
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="#">Контакты</a></li>
+                    </ul>
+                    <div class='headar-social'>
+                        <a class="headar-social--link header-social--vk" href="#"></a>
+                        <a class="headar-social--link header-social--inst" href="#"></a>
+                    </div>
+                    <div class="header-contacts">
+                        <a class="header-contacts--mail" href="#">info@lf-led.ru</a>
+                        <a class="header-contacts--tel" href="#">8 (912) 723-57-01</a>
+                        <p class="header-contacts--time-work">Время работы 9:00 – 18:00</p>
+                    </div>
+                </nav>
+                <a href="#" class="header-call--mobile header-mobile-none"></a> 
+                <button class="header-open--nav header-mobile-none">
+                    <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden">
+                    <label for="checkbox1">
+                        <div class="hamburger hamburger1">
+                            <span class="bar bar1"></span>
+                            <span class="bar bar2"></span>
+                            <span class="bar bar3"></span>
+                            <span class="bar bar4"></span>
+                        </div>
+                    </label>
+                </button>             
+            </div>
+        </header> 
+        <main>
+            <section class="contact">
+            <section class="bread-crumbs">
+                <div class="wrap">
+                    <ul class="bread-crumbs--list">
+                        <li class="bread-crumbs--item"><a href='index.html'>Главная</a></li>
+                        <li class="bread-crumbs--item">Контакты</li>
+                    </ul>                    
+                </div>
+            </section>
+            <h2 class="page-title wrap">Контакты</h2>
+
+                <div class="contact-wrap wrap">
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <span class="contact-item--title">Телефон:</span>
+                            <a class="contact-item--link contact-item--link-tel" href="#">+7 (912) 723-57-01</a>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-item--title">E-mail:</span>
+                            <a class="contact-item--link contact-item--link-tel" href="#">info@lf-led.ru</a>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-item--title">Адрес:</span>
+                            <p class="contact-item--text">610029, г. Киров, ул. Фабричная, д. 19</p>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-item--title">Соцсети:</span>
+                            <div class="contact-item--social-link">
+                                <a class="contact-item--social-link-vk" href="#"></a>
+                                <a class="contact-item--social-link-in" href="#"></a>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <a class="contact-item-link-requisites" href="#">Реквизиты компании</a>
+                        </li>
+                    </ul>
+                    <form class="contact-form" method="POST">
+                        <h2 class="contact-form-header">Оставьте заявку на консультацию</h2>
+                        <input class="contact-input contact-input-name" type="name" placeholder="Ваше имя *">
+                        <input class="contact-input contact-input-tel" type="tel" placeholder="+7 (999) 999-99-99 *">
+                        <input class="contact-input contact-input-mail" type="email" placeholder="Example@gmail.com">
+                        <button class="contact-form-submit" type="submit">Заказать звонок</button>
+                        <div class="contacts-politic-wrap">
+                            <input class="visuallyHidden contacts-politic-checked" id="politic" type="checkbox" checked required>
+                            <label class="politic-lable" for="politic">Согласен на обработку <a href="#">персональных данных</a></label>
+                        </div>
+                    </form>                    
+                </div>
+                <div class="wrap-map-contact" id="map-contact">
+                    
+                </div>
+            </section>
+        </main>
+        <footer class="footer" style="z-index: 1;">
+            <div class="header-wrap wrap footer-wrap wrap">
+                <a href="index.html">
+                    <picture class="header-logo-desctop footer-logo">
+                        <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
+                        <img src="image/footer/logo-mobile-footer.svg">
+                    </picture>                    
+                </a>
+                <nav class="header-navigation fooner-navigation">
+                    <ul class="header-bavigation__list footer-bavigation__list">
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="index.html">Главная</a></li>
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="product.html">Продукция</a></li>
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="services.html">Услуги</a></li>
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="articles.html">Статьи</a></li>
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="#">Контакты</a></li>
+                    </ul>
+                    <div class='headar-social footer-social'>
+                        <a class="headar-social--link header-social--vk" href="#"></a>
+                        <a class="headar-social--link header-social--inst" href="#"></a>
+                    </div>
+                    <div class="header-contacts footer-contacts">
+                        <a class="header-contacts--mail" href="#">info@lf-led.ru</a>
+                        <a class="header-contacts--tel" href="#">8 (912) 723-57-01</a>
+                        <p class="header-contacts--time-work">Время работы 9:00 – 18:00</p>
+                    </div>
+                </nav>     
+            </div>
+        </footer>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=e1d12f77-c3d9-40bc-bcd0-ac6e558860db&lang=ru_RU" type="text/javascript"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script>
+            ymaps.ready(function () {
+            var myMap = new ymaps.Map('map-contact', {
+                center: [55.775990, 37.510900],
+                zoom: 16
+            }, {
+                searchControlProvider: 'yandex#search'
+            }),
+            MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+            );
+            myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                hintContent: 'Москва Хорошевское шоссе д 43 г стр 1, офис 12'
+            }, {
+                iconLayout: 'default#image',
+                iconImageHref: 'http://bcexpress.vyatka-it.ru/wp-content/uploads/2021/05/placeholder.svg',
+                iconImageSize: [50, 50],
+                iconImageOffset: [-25, -50]
+            });
+            myMap.geoObjects.add(myPlacemark);
+            myMap.behaviors.disable('scrollZoom')
+            myMap.events.add('click', function(){
+            myMap.behaviors.enable('scrollZoom')
+            })
+        });
+        </script>
+        <script src="js/mask.js "></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

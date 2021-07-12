@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+        <title>Внутреняя страницы услуги</title>
+    </head>
+    <body>
+        <header>
+            <div class="header-wrap wrap">
+                <picture class="header-logo-desctop">
+                    <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
+                    <img src="image/header/header-logo-mobile.svg">
+                </picture>
+                <nav class="header-navigation header-navigation--close">
+                    <picture class="header-logo header-mobile-none">
+                        <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
+                        <img src="image/header/header-logo-mobile.svg">
+                    </picture>
+                    <ul class="header-bavigation__list">
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="index.html">Главная</a></li>
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="product.html">Продукция</a></li>
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="services.html">Услуги</a></li>
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="articles.html">Статьи</a></li>
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="contacts.html">Контакты</a></li>
+                    </ul>
+                    <div class='headar-social'>
+                        <a class="headar-social--link header-social--vk" href="#"></a>
+                        <a class="headar-social--link header-social--inst" href="#"></a>
+                    </div>
+                    <div class="header-contacts">
+                        <a class="header-contacts--mail" href="#">info@lf-led.ru</a>
+                        <a class="header-contacts--tel" href="#">8 (912) 723-57-01</a>
+                        <p class="header-contacts--time-work">Время работы 9:00 – 18:00</p>
+                    </div>
+                </nav>
+                <a href="#" class="header-call--mobile header-mobile-none"></a> 
+                <button class="header-open--nav header-mobile-none">
+                    <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden">
+                    <label for="checkbox1">
+                        <div class="hamburger hamburger1">
+                            <span class="bar bar1"></span>
+                            <span class="bar bar2"></span>
+                            <span class="bar bar3"></span>
+                            <span class="bar bar4"></span>
+                        </div>
+                    </label>
+                </button>             
+            </div>
+        </header> 
+        <main>
+            <section class="bread-crumbs">
+                <div class="wrap">
+                    <ul class="bread-crumbs--list">
+                        <li class="bread-crumbs--item"><a href='index.html'>Главная</a></li>
+                        <li class="bread-crumbs--item"><a href='services.html'>Услуги</a></li>
+                        <li class="bread-crumbs--item">Система управления освещением</li>
+                    </ul>                    
+                </div>
+            </section>
+            <h2 class="page-title wrap">Система управления освещением</h2>
+            <section class="service wrap">
+                <div class="service-img">
+                    <img class="service-img" src="image/service/serive-img.png" width="296" height="191">                    
+                </div>
+                <div class="service-content">
+                    <p class="service-content-text service-content-1">В последнее время все больше популярностью пользуется данная услуга. Ведь многие люди начинают понимать всю выгоду и эффективность экономии на электроэнергии. </p>
+                    <b class="service-content-text service-content-2">Наша компания предлагает выполнить монтаж системы управления освещение по протоколу DALI или 1-10.</b>
+                    <p class="service-content-text service-content-3">Система управления на основе протокола DALI обладает такими функциями, как:</p>
+                    <ul class="service-content--list">
+                        <li class="service-content--item">1. Управление либо каждым светильником, либо отдельными группами.</li>
+                        <li class="service-content--item">2. Заданная освещенность на рабочих местах.</li>
+                        <li class="service-content--item">3. Управление комбинированное: с сенсорной кнопочной панели, компьютера, смартфона.</li>
+                        <li class="service-content--item">4. Управление с кнопочной панели при отключении связи с сетью интернет и ПК.</li>
+                        <li class="service-content--item">5. Работа освещения по расписанию, по заданным заказчиком сценариям.</li>
+                        <li class="service-content--item">6. Диммирование светильников по яркости на 25%, 50%, 75%, 100%.</li>
+                        <li class="service-content--item">7. Передача информации о состоянии светильника базовой станции.</li>
+                        <li class="service-content--item">Перенастройка управления групп светильников.</li>
+                    </ul>
+                    <button class="service-content--button" type="button">Оставить заявку</button>
+                </div>
+            </section>
+            <section class="service-consultation">
+                <h2 class="service-consultation--header">Готовы ответить на все интересующие вас вопросы</h2>
+                <p class="service-consultation--subtitle">Оставьте свои контакты и мы проконсультируем вас по услуге или по телефону 8 (912) 723-57-01</p>
+                <form class="service-consultation--form consultation-form" method="POST">
+                    <input class="consultation-form--input consultation-form--input-name" type="name" placeholder="Ваше имя *">
+                    <input class="consultation-form--input consultation-form--input-tel" type="tel" placeholder="+7 (999) 999-99-99 *">
+                    <input class="consultation-form--input consultation-form--input-email" type="email" placeholder="Example@gmail.com">
+                    <textarea class="consultation-form--input-comments" placeholder="Ваш вопрос"></textarea>
+                    <div class="contacts-politic-wrap">
+                        <input class="visuallyHidden contacts-politic-checked" id="politic" type="checkbox" checked required>
+                        <label class="politic-lable" for="politic">Согласен на обработку <a href="#">персональных данных</a></label>
+                    </div>
+                    <button class="consultation-form--submit" type="submit">Получить консультацию</button>
+                </form>
+            </section>
+        </main>
+        <footer class="footer" style="z-index: 1;">
+            <div class="header-wrap wrap footer-wrap wrap">
+                <a href="index.html">
+                    <picture class="header-logo-desctop footer-logo">
+                        <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
+                        <img src="image/footer/logo-mobile-footer.svg">
+                    </picture>                    
+                </a>
+                <nav class="header-navigation fooner-navigation">
+                    <ul class="header-bavigation__list footer-bavigation__list">
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="index.html">Главная</a></li>
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="product.html">Продукция</a></li>
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="services.html">Услуги</a></li>
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="articles.html">Статьи</a></li>
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="contacts.html">Контакты</a></li>
+                    </ul>
+                    <div class='headar-social footer-social'>
+                        <a class="headar-social--link header-social--vk" href="#"></a>
+                        <a class="headar-social--link header-social--inst" href="#"></a>
+                    </div>
+                    <div class="header-contacts footer-contacts">
+                        <a class="header-contacts--mail" href="#">info@lf-led.ru</a>
+                        <a class="header-contacts--tel" href="#">8 (912) 723-57-01</a>
+                        <p class="header-contacts--time-work">Время работы 9:00 – 18:00</p>
+                    </div>
+                </nav>     
+            </div>
+        </footer>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=e1d12f77-c3d9-40bc-bcd0-ac6e558860db&lang=ru_RU" type="text/javascript"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="js/mask.js "></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
