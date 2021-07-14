@@ -130,6 +130,7 @@ input[type="radio"].visually-hidden {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 15px;
+    box-sizing: border-box;
 }
 
 @media(max-width: 968px) {
@@ -1026,7 +1027,6 @@ input[type="radio"].visually-hidden {
         margin-top: 0;
     }
     .footer-logo {
-        margin-left: 30px;
         margin-bottom: auto;
     }
     .footer-contacts {
@@ -3070,4 +3070,40 @@ input[type="radio"].visually-hidden {
 .header-index-link {
     display: flex;
     margin-right: 6%;
+}
+
+.copurating {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.politicu-conf {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #B4B4B4;
+}
+
+.devoloper {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #B4B4B4;
+    margin-top: 20px;
+}
+
+@media(min-width: 660px) { 
+    .copurating {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .devoloper {
+        margin-top: 0px;
+    }
 }
