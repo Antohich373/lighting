@@ -14,10 +14,12 @@
     <body>
         <header>
             <div class="header-wrap wrap">
-                <picture class="header-logo-desctop">
-                    <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
-                    <img src="image/header/header-logo-mobile.svg">
-                </picture>
+                <a class="header-index-link" href="index.html">
+                    <picture class="header-logo-desctop">
+                        <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
+                        <img src="image/header/header-logo-mobile.svg">
+                    </picture>
+                </a>
                 <nav class="header-navigation header-navigation--close">
                     <picture class="header-logo header-mobile-none">
                         <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
@@ -41,17 +43,9 @@
                     </div>
                 </nav>
                 <a href="#" class="header-call--mobile header-mobile-none"></a> 
-                <button class="header-open--nav header-mobile-none">
-                    <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden">
-                    <label for="checkbox1">
-                        <div class="hamburger hamburger1">
-                            <span class="bar bar1"></span>
-                            <span class="bar bar2"></span>
-                            <span class="bar bar3"></span>
-                            <span class="bar bar4"></span>
-                        </div>
-                    </label>
-                </button>             
+                <button class="header__toggle">
+
+                </button>              
             </div>
         </header> 
         <main>
@@ -107,10 +101,93 @@
                     
                 </div>
             </section>
+            <div class="modal-successful-sending">
+                <h2 class="modal-successful-sending-header">Спасибо <br> за обращение!</h2>
+                <p class="modal-successful-sending-text">Ваш запрос отправлен, в скором времени наши менеджеры свяжутся с вами</p>
+                <button class="modal-successful-sending-buitton" type="button">Закрыть</button>
+                <div class="modal-successful-sending--close"></div>
+            </div>
+            <div class="modal-show">
+    
+            </div>
+            <script src="https://api-maps.yandex.ru/2.1/?apikey=e1d12f77-c3d9-40bc-bcd0-ac6e558860db&lang=ru_RU" type="text/javascript"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+            <script>
+                ymaps.ready(function () {
+                var myMap = new ymaps.Map('map-contact', {
+                    center: [58.625094, 49.714196],
+                    zoom: 17
+                }, {
+                    searchControlProvider: 'yandex#search'
+                }),
+                MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                    '<div style="color: red; font-weight: bold;">$[properties.iconContent]</div>'
+                );
+                myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                    hintContent: '610029, г. Киров, ул. Фабричная, д. 19'
+                }, {
+                    iconLayout: 'default#image',
+                    iconImageHref: '/image/map.png',
+                    iconImageSize: [40, 40],
+                    iconImageOffset: [-20, -40]
+                });
+                myMap.geoObjects.add(myPlacemark);
+                myMap.behaviors.disable('scrollZoom')
+                myMap.events.add('click', function(){
+                myMap.behaviors.enable('scrollZoom')
+                })
+            });
+
+                let formContscts = document.querySelector('.contact-form')
+                formContscts.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var data = new FormData(this)
+                var url = 'https://jsonplaceholder.typicode.com/posts'
+                fetch(url, {
+                    method: 'post',
+                    headers: {
+                        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                    },
+                    body: data 
+                    })
+                    .then(response => response.json())
+                    .then((json) => { 
+                    if (json.id === 101) { 
+                        document.querySelector('.modal-successful-sending').classList.add('modal-successful-sending--active')
+                        document.querySelector('.modal-show').classList.add('modal-show--active')
+                        document.querySelector('.contact-input-name').value = ''
+                        document.querySelector('.contact-input-tel').value = ''
+                        document.querySelector('.contact-input-mail').value = ''
+                    }else {
+                        console.log(json)
+                    }
+
+                    })
+                    .catch(err => console.log(err));
+                })
+
+                let closeModalSecrus = document.querySelector('.modal-successful-sending--close')
+                let buttonCloseModalSecrus = document.querySelector('.modal-successful-sending-buitton')
+                document.querySelector('.modal-show').addEventListener('click', function() {
+                    document.querySelector('.modal-successful-sending').classList.remove('modal-successful-sending--active')
+                    document.querySelector('.modal-show').classList.remove('modal-show--active')  
+                })
+
+                buttonCloseModalSecrus.addEventListener('click', function() {
+                    document.querySelector('.modal-successful-sending').classList.remove('modal-successful-sending--active')
+                    document.querySelector('.modal-show').classList.remove('modal-show--active')  
+                })
+
+                closeModalSecrus.addEventListener('click', function() {
+                    document.querySelector('.modal-successful-sending').classList.remove('modal-successful-sending--active')
+                    document.querySelector('.modal-show').classList.remove('modal-show--active')  
+                })
+            </script>
+            <script src="js/mask.js "></script>
         </main>
         <footer class="footer" style="z-index: 1;">
             <div class="header-wrap wrap footer-wrap wrap">
-                <a href="index.html">
+                <a class="footer-link" href="index.html">
                     <picture class="header-logo-desctop footer-logo">
                         <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
                         <img src="image/footer/logo-mobile-footer.svg">
@@ -119,7 +196,7 @@
                 <nav class="header-navigation fooner-navigation">
                     <ul class="header-bavigation__list footer-bavigation__list">
                         <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="index.html">Главная</a></li>
-                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="product.html">Продукция</a></li>
+                        <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="products.html">Продукция</a></li>
                         <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="services.html">Услуги</a></li>
                         <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="articles.html">Статьи</a></li>
                         <li class="header-navigation__item footer-navigation__item"><a class="header-navigation__item--link" href="#">Контакты</a></li>
@@ -136,36 +213,6 @@
                 </nav>     
             </div>
         </footer>
-        <script src="https://api-maps.yandex.ru/2.1/?apikey=e1d12f77-c3d9-40bc-bcd0-ac6e558860db&lang=ru_RU" type="text/javascript"></script>
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-        <script>
-            ymaps.ready(function () {
-            var myMap = new ymaps.Map('map-contact', {
-                center: [55.775990, 37.510900],
-                zoom: 16
-            }, {
-                searchControlProvider: 'yandex#search'
-            }),
-            MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-                '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-            );
-            myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-                hintContent: 'Москва Хорошевское шоссе д 43 г стр 1, офис 12'
-            }, {
-                iconLayout: 'default#image',
-                iconImageHref: 'http://bcexpress.vyatka-it.ru/wp-content/uploads/2021/05/placeholder.svg',
-                iconImageSize: [50, 50],
-                iconImageOffset: [-25, -50]
-            });
-            myMap.geoObjects.add(myPlacemark);
-            myMap.behaviors.disable('scrollZoom')
-            myMap.events.add('click', function(){
-            myMap.behaviors.enable('scrollZoom')
-            })
-        });
-        </script>
-        <script src="js/mask.js "></script>
         <script src="js/script.js"></script>
     </body>
 </html>

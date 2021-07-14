@@ -14,10 +14,12 @@
     <body>
         <header>
             <div class="header-wrap wrap">
-                <picture class="header-logo-desctop">
-                    <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
-                    <img src="image/header/header-logo-mobile.svg">
-                </picture>
+                <a class="header-index-link" href="index.html">
+                    <picture class="header-logo-desctop">
+                        <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
+                        <img src="image/header/header-logo-mobile.svg">
+                    </picture>
+                </a>
                 <nav class="header-navigation header-navigation--close">
                     <picture class="header-logo header-mobile-none">
                         <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
@@ -25,7 +27,7 @@
                     </picture>
                     <ul class="header-bavigation__list">
                         <li class="header-navigation__item"><a class="header-navigation__item--link" href="index.html">Главная</a></li>
-                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="product.html">Продукция</a></li>
+                        <li class="header-navigation__item"><a class="header-navigation__item--link" href="products.html">Продукция</a></li>
                         <li class="header-navigation__item"><a class="header-navigation__item--link" href="services.html">Услуги</a></li>
                         <li class="header-navigation__item"><a class="header-navigation__item--link" href="articles.html">Статьи</a></li>
                         <li class="header-navigation__item"><a class="header-navigation__item--link" href="contacts.html">Контакты</a></li>
@@ -41,17 +43,9 @@
                     </div>
                 </nav>
                 <a href="#" class="header-call--mobile header-mobile-none"></a> 
-                <button class="header-open--nav header-mobile-none">
-                    <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden">
-                    <label for="checkbox1">
-                        <div class="hamburger hamburger1">
-                            <span class="bar bar1"></span>
-                            <span class="bar bar2"></span>
-                            <span class="bar bar3"></span>
-                            <span class="bar bar4"></span>
-                        </div>
-                    </label>
-                </button>             
+                <button class="header__toggle">
+
+                </button>              
             </div>
         </header> 
         <main>
@@ -83,7 +77,7 @@
                         <li class="service-content--item">7. Передача информации о состоянии светильника базовой станции.</li>
                         <li class="service-content--item">Перенастройка управления групп светильников.</li>
                     </ul>
-                    <button class="service-content--button" type="button">Оставить заявку</button>
+                    <button class="service-content--button button-popop" type="button">Оставить заявку</button>
                 </div>
             </section>
             <section class="service-consultation">
@@ -101,10 +95,132 @@
                     <button class="consultation-form--submit" type="submit">Получить консультацию</button>
                 </form>
             </section>
+            <div class="wrap-form">
+                <form class="application-form" method="POST">
+                    <h2 class="application-form--header">Оставить заявку</h2>
+                    <input class="application-form--input application-form--input-name" type="name" placeholder="Ваше имя *">
+                    <input class="application-form--input application-form--input-tel" type="tel" placeholder="+7 (999) 999-99-99 *">
+                    <input class="application-form--input application-form--mail" type="email" placeholder="Example@gmail.com">
+                    <div class="contacts-politic-wrap">
+                        <input class="visuallyHidden contacts-politic-checked" id="politic" type="checkbox" checked required>
+                        <label class="politic-lable" for="politic">Согласен на обработку <a href="#">персональных данных</a></label>
+                    </div>
+                    <button class="application-form--submit" type="submit">Оставить заявку</button>
+                    <div class="wrap-form--close"></div>
+                </form>
+            </div>
+            <div class="modal-successful-sending">
+                <h2 class="modal-successful-sending-header">Спасибо <br> за обращение!</h2>
+                <p class="modal-successful-sending-text">Ваш запрос отправлен, в скором времени наши менеджеры свяжутся с вами</p>
+                <button class="modal-successful-sending-buitton" type="button">Закрыть</button>
+                <div class="modal-successful-sending--close"></div>
+            </div>
+            <div class="modal-show">
+    
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+            <script src="js/mask.js "></script>
+            <script>
+                //Оставить заявку
+                let modalPopup = document.querySelector('.wrap-form');
+                let modalShowe = document.querySelector('.modal-show');
+                let buttonOpenPopop = document.querySelector('.button-popop');
+    
+                buttonOpenPopop.addEventListener('click', function() {
+                    modalPopup.classList.add('wrap-form--active')
+                    modalShowe.classList.add('modal-show--active')
+                });
+                //Закрыть заявку
+                let closeModal = document.querySelector('.wrap-form--close');
+                
+                closeModal.addEventListener('click', function() {
+                    modalPopup.classList.remove('wrap-form--active')
+                    modalShowe.classList.remove ('modal-show--active')
+                });
+    
+                modalShowe.addEventListener('click', function() {
+                    modalPopup.classList.remove('wrap-form--active')
+                    modalShowe.classList.remove ('modal-show--active')
+                })
+
+                let formAplicationFooter = document.querySelector('.service-consultation--form')
+                formAplicationFooter.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var data = new FormData(this)
+                var url = 'https://jsonplaceholder.typicode.com/posts'
+                fetch(url, {
+                    method: 'post',
+                    headers: {
+                        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                    },
+                    body: data 
+                    })
+                    .then(response => response.json())
+                    .then((json) => { 
+                    if (json.id === 101) { 
+                        document.querySelector('.modal-successful-sending').classList.add('modal-successful-sending--active')
+                        document.querySelector('.consultation-form--input-name').value = ''
+                        document.querySelector('.consultation-form--input-tel').value = ''
+                        document.querySelector('.consultation-form--input-email').value = ''
+                        document.querySelector('.consultation-form--input-comments').value = ''
+                        document.querySelector('.modal-show').classList.add('modal-show--active')
+                    }else {
+                        console.log(json)
+                    }
+
+                    })
+                    .catch(err => console.log(err));
+                })
+                
+                let formAplication = document.querySelector('.application-form')
+                formAplication.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var data = new FormData(this)
+                var url = 'https://jsonplaceholder.typicode.com/posts'
+                fetch(url, {
+                    method: 'post',
+                    headers: {
+                        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                    },
+                    body: data 
+                    })
+                    .then(response => response.json())
+                    .then((json) => { 
+                    if (json.id === 101) { 
+                        document.querySelector('.modal-successful-sending').classList.add('modal-successful-sending--active')
+                        document.querySelector('.application-form--input-name').value = ''
+                        document.querySelector('.application-form--input-tel').value = ''
+                        document.querySelector('.application-form--mail').value = ''
+                        modalPopup.classList.remove('wrap-form--active')
+                    }else {
+                        console.log(json)
+                    }
+
+                    })
+                    .catch(err => console.log(err));
+                })
+
+                let closeModalSecrus = document.querySelector('.modal-successful-sending--close')
+                let buttonCloseModalSecrus = document.querySelector('.modal-successful-sending-buitton')
+                document.querySelector('.modal-show').addEventListener('click', function() {
+                    document.querySelector('.modal-successful-sending').classList.remove('modal-successful-sending--active')
+                    document.querySelector('.modal-show').classList.remove('modal-show--active')  
+                })
+
+                buttonCloseModalSecrus.addEventListener('click', function() {
+                    document.querySelector('.modal-successful-sending').classList.remove('modal-successful-sending--active')
+                    document.querySelector('.modal-show').classList.remove('modal-show--active')  
+                })
+
+                closeModalSecrus.addEventListener('click', function() {
+                    document.querySelector('.modal-successful-sending').classList.remove('modal-successful-sending--active')
+                    document.querySelector('.modal-show').classList.remove('modal-show--active')  
+                })
+            </script>
         </main>
         <footer class="footer" style="z-index: 1;">
             <div class="header-wrap wrap footer-wrap wrap">
-                <a href="index.html">
+                <a class="footer-link" href="index.html">
                     <picture class="header-logo-desctop footer-logo">
                         <source media="(min-width: 768px)" srcset="image/header/header-logo-desctop.svg">
                         <img src="image/footer/logo-mobile-footer.svg">
@@ -130,10 +246,6 @@
                 </nav>     
             </div>
         </footer>
-        <script src="https://api-maps.yandex.ru/2.1/?apikey=e1d12f77-c3d9-40bc-bcd0-ac6e558860db&lang=ru_RU" type="text/javascript"></script>
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-        <script src="js/mask.js "></script>
         <script src="js/script.js"></script>
     </body>
 </html>
